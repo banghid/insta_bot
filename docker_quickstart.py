@@ -31,22 +31,22 @@ def job():
                     page_delay=25)
 
     with smart_run(session):
-    """ Activity flow """		
-    # general settings		
-    session.set_dont_include(["friend1", "friend2", "friend3"])		
-    
-    # activity
-    session.set_do_comment(enabled=True, percentage=35)
-    session.set_comments(comments)
-    session.set_do_follow(enabled=True,percentage=50,times=10)		
-    session.like_by_tags(["makan", "makananjogja", "sukamakan", "food", "makananindonesia",
-                            "makansehat", "kuliner", "maknyus"], amount=10)
+        """ Activity flow """		
+        # general settings		
+        session.set_dont_include(["friend1", "friend2", "friend3"])		
+        
+        # activity
+        session.set_do_comment(enabled=True, percentage=35)
+        session.set_comments(comments)
+        session.set_do_follow(enabled=True,percentage=50,times=10)		
+        session.like_by_tags(["makan", "makananjogja", "sukamakan", "food", "makananindonesia",
+                                "makansehat", "kuliner", "maknyus"], amount=10)
 
-    # Joining Engagement Pods
-    session.set_do_comment(enabled=True, percentage=35)
-    session.set_comments(comments)
-    session.set_do_follow(enabled=True,percentage=40,times=10)
-    session.join_pods(topic='food', engagement_mode='no_comments')
+        # Joining Engagement Pods
+        session.set_do_comment(enabled=True, percentage=35)
+        session.set_comments(comments)
+        session.set_do_follow(enabled=True,percentage=40,times=10)
+        session.join_pods(topic='food', engagement_mode='no_comments')
 
 schedule.every().day.at("08:33").do(job)
 schedule.every().day.at("18:12").do(job)
