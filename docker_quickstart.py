@@ -11,7 +11,7 @@ insta_password = 'MaKaN123'
 
 comments = ['Keren @{}',
         'Keren fotonya @{}',
-        'Feed lu bagus banget :thumbsup:',
+        'Feed-nya bagus banget :thumbsup:',
         'Mantap Jiwa :open_mouth:',
         'Make kamera apa nih? @{}?',
         'Mantep @{}',
@@ -19,8 +19,18 @@ comments = ['Keren @{}',
         'Hebat @{}',
         ':raised_hands: Yes!',
         'Keren banget @{} :muscle:',
-        'Ah mantap :thumbsup:'
+        'Ah mantap :thumbsup:',
+        ':thumbsup:',
+        'wow :open_mouth:'
         ]
+tags = ["makan",
+        "makananjogja",
+        "sukamakan",
+        "food",
+        "makananindonesia",
+        "makansehat",
+        "kuliner",
+        "maknyus"]
 
 def job():
     # get an InstaPy session!
@@ -39,8 +49,7 @@ def job():
         session.set_do_comment(enabled=True, percentage=35)
         session.set_comments(comments)
         session.set_do_follow(enabled=True,percentage=50,times=10)		
-        session.like_by_tags(["makan", "makananjogja", "sukamakan", "food", "makananindonesia",
-                                "makansehat", "kuliner", "maknyus"], amount=10)
+        session.like_by_tags(tags, amount=10)
 
         # Joining Engagement Pods
         session.set_do_comment(enabled=True, percentage=35)
@@ -54,6 +63,6 @@ schedule.every().day.at("18:12").do(job)
 if __name__ == '__main__':
     logging.warning("Log app started")
     while True:
-        logging.warning("slee 10")
+        logging.warning("sleep 30")
         schedule.run_pending()
-        time.sleep(10)
+        time.sleep(30)
